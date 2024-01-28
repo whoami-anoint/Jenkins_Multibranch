@@ -1,11 +1,12 @@
-node('built-in') 
-{
-    stage('Continuous Download') 
-	{
-    git 'https://github.com/sunildevops77/maven.git'
-	}
-    stage('Continuous Build') 
-	{
-    sh label: '', script: 'mvn package'
-	}
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                // Checkout the code from the Git repository
+                git 'https://github.com/whoami-anoint/Jenkins_Multibranch.git'
+            }
+        }
+    }
 }
